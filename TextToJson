@@ -1,0 +1,34 @@
+import re
+import sys
+from googletrans import Translator
+
+# Comprueba si se proporcionó el nombre del archivo de entrada
+if len(sys.argv) < 2:
+    print("Error: Debe proporcionar un archivo de entrada")
+    sys.exit()
+
+# Abre el archivo de entrada para lectura
+with open(sys.argv[1], 'r') as f:
+    # Lee el contenido del archivo
+    content = f.read()
+
+    # Crea una expresión regular para separar las columnas por tabuladores
+    regex = re.compile(r'^(\S+)\t(.+)\t(\S+)$', re.M)
+
+    # Busca todas las coincidencias en el contenido del archivo
+    matches = regex.findall(content)
+
+    # Crea un objeto Translator
+    translator = Translator()
+
+    # Abre el archivo de salida para escritura
+    with open('output.txt', 'w') as out_file:
+        # Itera sobre los resultados y escribe en el archivo de salida
+        for match in matches:
+            name = match[0]
+            description = match[1]
+            data_type = match[2]
+            # Traduce la descripción al inglés
+            description_en = translator.translate(description, dest='en').text
+            # Escribe en el archivo de salida
+            out_file.write("{\nname: " + name + "\ntype: " + data_type + "\ndescription: " + description + "\ndescription_en: " + description_en + "\n}\n")
