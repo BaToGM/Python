@@ -3,7 +3,7 @@ Los diferentes programas que hay hasta ahora son diferentes versiones de convert
 
 ### Futuras versiones     
 
-Para futuras versiones me gustaria añadir:
-1.- Buscar de forma correcta en las tablas que se generan en pandas.
-2.- Dar diferentes formatos de Json dependiendo del location de entrada.
+Para futuras versiones me gustaria añadir:    
+1.- Buscar de forma correcta en las tablas que se generan en pandas.    
+2.- Dar diferentes formatos de Json dependiendo del location de entrada.     
 3.- Introducir mas campos si son necesarios.
