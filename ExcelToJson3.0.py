@@ -11,6 +11,7 @@ df = pd.read_excel('Libro.xlsx', sheet_name=sheet_name)
 translator = Translator()
 
 # Obtener información del dataset
+location =  input("Ingrese el location del dataset: ")
 dataset_name = input("Ingrese el nombre del dataset: ")
 description = input("Ingrese la descripción del dataset: ")
 owner = input("Autor")
@@ -19,7 +20,7 @@ part_fields = "ds"
 with open('salida.txt', 'w', encoding='utf-8') as file:
     # Escribir el inicio del dataset
     file.write("dataset {\n")
-    file.write(f'  location: s.cem.pubs3\n')
+    file.write(f'  location: "{location}"\n')
     file.write(f'  name: "{dataset_name}"\n')
     file.write(f'  owner: "{owner}"\n')
     file.write(f'  frequency: "quarter"\n')
